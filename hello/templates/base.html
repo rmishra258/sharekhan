@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sharekhan Analytics</title>
+
+    {% load static %}
+    {% include 'base/css.html' %}
+    {% include 'base/bootstrap_defaults.html' %}
+
+      <link rel="shortcut icon" type="image/png" href="{% static 'logo.png' %}"/>
+  </head>
+  <body>
+    <div class='container'>
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-faded ">
+          <a class="navbar-brand" href="https://sharekhan.herokuapp.com">
+            <img src="https://cdn-images-1.medium.com/max/1190/1*ZXR6N1ONH4kvUMriEVKmuw.jpeg" width="100" height="80" class="d-inline-block align-top" alt="logo">
+            Sharekhan Analytics
+          </a>
+        </nav>
+
+
+        <br><br><br>
+
+    {% block content %}
+    {% endblock content %}
+
+    {% include 'base/js.html' %}
+    <script>
+    $(document).ready(function(){
+      {% block jquery %}{% endblock %}
+    })
+    </script>
+    <br><br><br>
+
+        <li class="list-group-item list-group-item-warning"><h6 align="center">Statistics for APRIL 2017</h6></li>
+        <br>
+
+      <div class="jumbotron jumbotron-fluid">
+         <div class="container">
+          <h3 class="display-3" align="center">More Questions</h3>
+          <p class="lead" align="center">Generate more graphs by selecting the questions below</p>
+
+      <div class="col-md-6">
+
+      <div class="list-group">
+        <h5 align="center">Leads Wise Graphs</h5>
+        <a href='{% url 'weekdays-chart' %}' class="list-group-item list-group-item-action list-group-item-success">
+          <span class="mb-1">Days of the week</span><br>
+          <small>Leads acquired over days of the week <br>(eg: Mon, Tue ..... Sun)</small>
+        </a>
+       <a href='{% url 'time-chart' %}' class="list-group-item list-group-item-action list-group-item-info">
+          <span class="mb-1">Time of the day</span><br>
+          <small>Leads acquired over specific time of the Day <br> (eg: 01:00 Hrs, 23:00 Hrs...)</small>
+        </a>
+        <a href='{% url 'city-chart' %}' class="list-group-item list-group-item-action list-group-item-warning">
+          <span class="mb-1">Top 10 cities</span><br>
+          <small>Top 10 cities we get leads from <br>(eg: Mumbai, Pune, Delhi...)</small>
+        </a>
+        <a href='{% url 'source-chart' %}' class="list-group-item list-group-item-action list-group-item-danger">
+          <span class="mb-1">Traffic sources data</span><br>
+          <small>Leads acquired through various sources <br>(eg : Google Adwords, BingAds....) </small>
+        </a>
+    </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+          <div class="list-group">
+            <h5 align="center">Conversion Wise Graphs</h5>
+            <a href='{% url 'conv-weekdays-chart' %}' class="list-group-item list-group-item-action list-group-item-success">
+              <span class="mb-1">Days of the week</span><br>
+              <small>Conversion acquired over days of the week <br>(eg: Mon, Tue ..... Sun)</small>
+            </a>
+           <a href='{% url 'conv-time-chart' %}' class="list-group-item list-group-item-action list-group-item-info">
+              <span class="mb-1">Time of the day</span><br>
+              <small>Conversion acquired over specific time of the Day <br>(eg: 01:00 Hrs, 23:00 Hrs...)</small>
+            </a>
+            <a href='{% url 'conv-city-chart' %}' class="list-group-item list-group-item-action list-group-item-warning">
+              <span class="mb-1">Top 10 cities</span><br>
+              <small>Top 10 cities we get Conversion from <br>(eg: Mumbai, Pune, Delhi...)</small>
+            </a>
+            <a href='{% url 'conv-source-chart' %}' class="list-group-item list-group-item-action list-group-item-danger">
+              <span class="mb-1">Traffic sources data</span><br>
+              <small>Conversion acquired through various sources <br>(eg : Google Adwords, BingAds....) </small>
+            </a>
+
+
+        </div>
+
+        </div>
+    <div class="col-md-12">
+
+          <div class="list-group">
+            <h5 align="center">Keywords wise Graphs</h5>
+            <a href='{% url 'keyword-chart' %}' class="list-group-item list-group-item-action list-group-item-success">
+              <span class="mb-1">Brand Converting keywords</span><br>
+              <small>keywords related to brand that converted <br>(eg: share khan, sharekhan, sharekhan demat.....)</small>
+            </a>
+
+
+
+        </div>
+
+        </div>
+
+
+           </div>
+      </div>
+    </div>
+    <center> <p>Powered by Django -- <img src="https://docs.djangoproject.com/s/img/small-fundraising-heart.d255f6e934e5.png" height="20" width="20"> </p></center>
+  </body>
+</html>
